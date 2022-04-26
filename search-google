@@ -1,0 +1,14 @@
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com/search?q=Amazon+Ratenzahlung")
+
+
+f=open('google.csv', 'w')
+f.write('Title,Link')
+for element in driver.find_element_by_xpath('//div[@class="NJo7tc Z26q7c jGGQ5e"]'):
+    title = element.find_element_by_xpath('.//h3').text
+    link = find_element_by_xpath('.//div[@class="yuRUbf"]/a').get_attribute('href')    
+    f.write(title.replace(',','|')+','+linl.replace(',','|')+'\n')
+
+f.close()
